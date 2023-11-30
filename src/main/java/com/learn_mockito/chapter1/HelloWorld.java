@@ -1,7 +1,10 @@
 package com.learn_mockito.chapter1;
 
 public class HelloWorld {
-  public static void main(String[] args) {
-    System.out.println("Hello Word");
+
+  private String greeting = "Hello %s, from Mockito";
+
+  public String greet(String name) {
+    return String.format(greeting, name);
   }
 }
