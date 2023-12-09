@@ -4,7 +4,7 @@ import java.util.Optional;
 
 public class HelloMockito {
 
-  private String greeting = "Hello, %s, from Mockiot!";
+  private String greeting = "Hello, %s, from Mockito!";
 
   private final PersonRespository personRespository;
   private final TranslationService translationService;
