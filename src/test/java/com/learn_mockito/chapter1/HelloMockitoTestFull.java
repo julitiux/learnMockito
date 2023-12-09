@@ -1,5 +1,6 @@
 package com.learn_mockito.chapter1;
 
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -11,11 +12,12 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Optional;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-class HelloMockitoTestFull {
+public class HelloMockitoTestFull {
 
   @Mock
   private PersonRespository personRespository;
@@ -28,11 +30,14 @@ class HelloMockitoTestFull {
 
   @Test
   @DisplayName("Greet a person not in the database")
-  void greetAPersonThatDoesNotExist() {
+  public void greetAPersonThatDoesNotExist() {
     when(personRespository.findById(anyLong()))
       .thenReturn(Optional.empty());
     when(translationService.translate("Hello, World, from Mockito!", "en", "en"))
       .thenReturn("Hello, World, from Mockito!");
+
+    String greeting = helloMockito.greet(100L, "en", "en");
+    assertEquals("Hello, World, from Mockito!", greeting);
 
     InOrder inOrder = Mockito.inOrder(personRespository, translationService);
     inOrder.verify(personRespository).findById(anyLong());
