@@ -29,6 +29,23 @@ public class HelloMockitoTestFull {
   private HelloMockito helloMockito;
 
   @Test
+  @DisplayName("Greet Admiral Hopper")
+  void greetAPersonThatExists() {
+    when(personRespository.findById(anyLong()))
+      .thenReturn(Optional.of(new Person(1L, "Julio", "Ramirez", "rrodriguez.julio@gmail.com")));
+    when(translationService
+      .translate("Hello, Grace, from Mockito!", "en", "en"))
+      .thenReturn("Hello, Grace, from Mockito!");
+
+    String greeting = helloMockito.greet(1L, "en", "en");
+    assertEquals("Hello, Grace, from Mockito!", greeting);
+
+    InOrder inOrder = Mockito.inOrder(personRespository, translationService);
+    inOrder.verify(personRespository).findById(anyLong());
+    inOrder.verify(translationService).translate(anyString(), eq("en"), eq("en"));
+  }
+
+  @Test
   @DisplayName("Greet a person not in the database")
   public void greetAPersonThatDoesNotExist() {
     when(personRespository.findById(anyLong()))
