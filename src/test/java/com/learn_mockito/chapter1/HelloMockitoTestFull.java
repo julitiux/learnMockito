@@ -31,15 +31,18 @@ public class HelloMockitoTestFull {
   @Test
   @DisplayName("Greet Admiral Hopper")
   void greetAPersonThatExists() {
+    // set the expectations on the mocks
     when(personRespository.findById(anyLong()))
       .thenReturn(Optional.of(new Person(1L, "Julio", "Ramirez", "rrodriguez.julio@gmail.com")));
     when(translationService
       .translate("Hello, Grace, from Mockito!", "en", "en"))
       .thenReturn("Hello, Grace, from Mockito!");
 
+    // test the greet method
     String greeting = helloMockito.greet(1L, "en", "en");
     assertEquals("Hello, Grace, from Mockito!", greeting);
 
+    // verify the methods are called once, in the right order
     InOrder inOrder = Mockito.inOrder(personRespository, translationService);
     inOrder.verify(personRespository).findById(anyLong());
     inOrder.verify(translationService).translate(anyString(), eq("en"), eq("en"));
@@ -56,6 +59,7 @@ public class HelloMockitoTestFull {
     String greeting = helloMockito.greet(100L, "en", "en");
     assertEquals("Hello, World, from Mockito!", greeting);
 
+    // verify the methods are called once, in the right order
     InOrder inOrder = Mockito.inOrder(personRespository, translationService);
     inOrder.verify(personRespository).findById(anyLong());
     inOrder.verify(translationService).translate(anyString(), eq("en"), eq("en"));
