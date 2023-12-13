@@ -17,7 +17,7 @@ import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-public class HelloMockitoTestFull {
+public class HelloMockitoTest {
 
   @Mock
   private PersonRespository personRespository;
