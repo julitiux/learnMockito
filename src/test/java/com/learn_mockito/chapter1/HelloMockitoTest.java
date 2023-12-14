@@ -35,12 +35,12 @@ public class HelloMockitoTest {
     when(personRespository.findById(anyLong()))
       .thenReturn(Optional.of(new Person(1L, "Julio", "Ramirez", "rrodriguez.julio@gmail.com")));
     when(translationService
-      .translate("Hello, Grace, from Mockito!", "en", "en"))
-      .thenReturn("Hello, Grace, from Mockito!");
+      .translate("Hello, Julio, from Mockito!", "en", "en"))
+      .thenReturn("Hello, Julio, from Mockito!");
 
     // test the greet method
     String greeting = helloMockito.greet(1L, "en", "en");
-    assertEquals("Hello, Grace, from Mockito!", greeting);
+    assertEquals("Hello, Julio, from Mockito!", greeting);
 
     // verify the methods are called once, in the right order
     InOrder inOrder = Mockito.inOrder(personRespository, translationService);
