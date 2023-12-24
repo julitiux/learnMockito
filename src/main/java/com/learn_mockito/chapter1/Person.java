@@ -1,21 +1,16 @@
 package com.learn_mockito.chapter1;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
-@Table(name = "person")
 public class Person {
 
-  @Id
-  @GeneratedValue
   private Long id;
   private String firstName;
   private String lastName;
