@@ -1,6 +1,13 @@
 package com.learn_mockito.chapter1;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import java.util.List;
+import java.util.Optional;
 
-public interface PersonRespository extends JpaRepository<Person, Long> {
+public interface PersonRespository {
+
+  Optional<Person> findById(Long id);
+  List<Person> findAll();
+  Person saver(Person person);
+  void delete(Person person);
+
 }
