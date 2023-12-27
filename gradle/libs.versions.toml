@@ -2,12 +2,27 @@
 assertj = "3.23.1"
 junit = "5.9.1"
 mockito = "4.9.0"
+gson = "2.10.1"
+retrofit = "2.9.0"
+jackson = "2.15.2"
+
 [libraries]
 assertj = { module = "org.assertj:assertj-core", version.ref = "assertj" }
 junit-jupiter = { module = "org.junit.jupiter:junit-jupiter", version.ref = "junit" }
 junit-vintage = { module = "org.junit.vintage:junit-vintage-engine", version.ref = "junit" }
 mockito-inline = { module = "org.mockito:mockito-inline", version.ref = "mockito" }
 mockito-junit = { module = "org.mockito:mockito-junit-jupiter", version.ref = "mockito" }
+gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
+retrofit-core = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
+retrofit-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "retrofit" }
+jackson = { module = "com.fasterxml.jackson.core:jackson-databind", version.ref = "jackson" }
+
 [bundles]
-junit = ["junit-jupiter", "junit-vintage"]
-mockito = ["mockito-inline", "mockito-junit"]
+junit = [
+  "junit-jupiter",
+  "junit-vintage"
+]
+mockito = [
+  "mockito-inline",
+  "mockito-junit"
+]
