@@ -19,14 +19,25 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+	// Flyway
 	implementation 'org.flywaydb:flyway-core'
+
+	// Lombok
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
-	implementation 'com.squareup.retrofit2:retrofit'
-	implementation 'com.squareup.retrofit2:converter-gson'
 
+	// Retrofit
+	implementation libs.retrofit.core
+	implementation libs.retrofit.gson
 
+	// Jackson JSON library
+	implementation libs.jackson
 
+	// Gson
+	implementation libs.gson
+
+	// Mockito
 	testImplementation libs.bundles.junit
 	testImplementation libs.bundles.mockito
 	testImplementation libs.assertj
