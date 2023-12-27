@@ -22,6 +22,10 @@ dependencies {
 	implementation 'org.flywaydb:flyway-core'
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
+	implementation 'com.squareup.retrofit2:retrofit'
+	implementation 'com.squareup.retrofit2:converter-gson'
+
+
 
 	testImplementation libs.bundles.junit
 	testImplementation libs.bundles.mockito
