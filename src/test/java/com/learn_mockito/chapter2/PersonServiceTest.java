@@ -2,6 +2,8 @@ package com.learn_mockito.chapter2;
 
 import org.junit.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.time.LocalDate;
@@ -17,6 +19,13 @@ import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 public class PersonServiceTest {
+
+  @Mock
+  private PersonRepository personRepository;
+
+  @InjectMocks
+  private PersonService personService;
+
 
   private final List<Person> people = Arrays.asList(
     new Person(1, "Grace", "Hopper", LocalDate.of(1906, Month.DECEMBER, 9)),
@@ -58,6 +67,14 @@ public class PersonServiceTest {
       () -> assertEquals(0, mockRepo.count())
     );
 
+  }
+
+  @Test
+  public void getLastNames_usingAnnotations() {
+    when(personRepository.findAll()).thenReturn(people);
+    assertThat(personService.getLastNames())
+      .contains("Borg", "Goldberg", "Hopper", "Liskov", "Lovelace");
+    verify(personRepository).findAll();
   }
 
 }
