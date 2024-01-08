@@ -11,6 +11,7 @@ import java.time.LocalDate;
 import java.time.Month;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
@@ -76,6 +77,25 @@ public class PersonServiceTest {
     assertThat(personService.getLastNames())
       .contains("Borg", "Goldberg", "Hopper", "Liskov", "Lovelace");
     verify(personRepository).findAll();
+  }
+
+  @Test
+  void findByIds_explicitiWhens() {
+    when(personRepository.findById(0))
+      .thenReturn(Optional.of(people.get(0)));
+    when(personRepository.findById(1))
+      .thenReturn(Optional.of(people.get(1)));
+    when(personRepository.findById(2))
+      .thenReturn(Optional.of(people.get(2)));
+    when(personRepository.findById(3))
+      .thenReturn(Optional.of(people.get(3)));
+    when(personRepository.findById(4))
+      .thenReturn(Optional.of(people.get(4)));
+    when(personRepository.findById(5))
+      .thenReturn(Optional.empty());
+
+    List<Person> personList = personService.findByIds(0, 1, 2, 3, 4, 5);
+    assertThat(personList).containsExactlyElementsOf(people);
   }
 
 }
