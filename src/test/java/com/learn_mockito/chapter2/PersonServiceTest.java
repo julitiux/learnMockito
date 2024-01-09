@@ -80,7 +80,7 @@ public class PersonServiceTest {
   }
 
   @Test
-  void findByIds_explicitiWhens() {
+  void findByIds_explicitWhens() {
     when(personRepository.findById(0))
       .thenReturn(Optional.of(people.get(0)));
     when(personRepository.findById(1))
@@ -94,6 +94,19 @@ public class PersonServiceTest {
     when(personRepository.findById(5))
       .thenReturn(Optional.empty());
 
+    List<Person> personList = personService.findByIds(0, 1, 2, 3, 4, 5);
+    assertThat(personList).containsExactlyElementsOf(people);
+  }
+
+  @Test
+  void findByIds_thenReturnWithMultipleArgs() {
+    when(personRepository.findById(anyInt())).thenReturn(
+      Optional.of(people.get(0)),
+      Optional.of(people.get(1)),
+      Optional.of(people.get(2)),
+      Optional.of(people.get(3)),
+      Optional.of(people.get(4)),
+      Optional.empty());
     List<Person> personList = personService.findByIds(0, 1, 2, 3, 4, 5);
     assertThat(personList).containsExactlyElementsOf(people);
   }
