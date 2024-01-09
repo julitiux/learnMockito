@@ -113,9 +113,15 @@ public class PersonServiceTest {
 
   @Test
   public void deleteAllWithNulls() {
+    // Set up findAll to return a list containing nulls of type Person
     when(personRepository.findAll()).thenReturn(
       Arrays.asList((Person) null)
     );
+
+    // This Won't compile
+    // when(personRepository.delete(null)).thenThrow(RuntimeException.class);
+
+    // But this will
     doThrow(RuntimeException.class).when(personRepository).delete(null);
     assertThrows(RuntimeException.class, () -> personService.deleteAll());
     verify(personRepository).delete(null);
