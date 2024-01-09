@@ -111,4 +111,14 @@ public class PersonServiceTest {
     assertThat(personList).containsExactlyElementsOf(people);
   }
 
+  @Test
+  public void deleteAllWithNulls() {
+    when(personRepository.findAll()).thenReturn(
+      Arrays.asList((Person) null)
+    );
+    doThrow(RuntimeException.class).when(personRepository).delete(null);
+    assertThrows(RuntimeException.class, () -> personService.deleteAll());
+    verify(personRepository).delete(null);
+  }
+
 }
