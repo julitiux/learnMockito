@@ -6,17 +6,17 @@ public class HelloMockito {
 
   private String greeting = "Hello, %s, from Mockito!";
 
-  private final PersonRespository personRespository;
+  private final PersonRepository personRepository;
   private final TranslationService translationService;
 
-  public HelloMockito(PersonRespository personRespository, TranslationService translationService) {
-    this.personRespository = personRespository;
+  public HelloMockito(PersonRepository personRepository, TranslationService translationService) {
+    this.personRepository = personRepository;
     this.translationService = translationService;
   }
 
-  public String greet(Long id, String sourceLang, String targetLang) {
-    Optional<Person> person = personRespository.findById(id);
-    String name = person.map(Person::getFirstName).orElse("World");
+  public String greet(int id, String sourceLang, String targetLang) {
+    Optional<Person> person = personRepository.findById(id);
+    String name = person.map(Person::getFirst).orElse("World");
     return translationService.translate(String.format(greeting, name), sourceLang, targetLang);
   }
 }
