@@ -1,22 +1,17 @@
 package com.learn_mockito;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+
+import java.time.LocalDate;
 
 @Data
-@Builder
-@NoArgsConstructor
 @AllArgsConstructor
 public class Person {
 
-  private Long id;
-  private String firstName;
-  private String lastName;
-  private String mail;
+  private final Integer id;
+  private final String first;
+  private final String last;
+  private final LocalDate localDate;
 
-  public String getFirstName() {
-    return firstName;
-  }
 }

@@ -2,7 +2,6 @@ package com.learn_mockito.chapter1;
 
 
 import com.learn_mockito.HelloMockito;
-import com.learn_mockito.Person;
 import com.learn_mockito.PersonRespository;
 import com.learn_mockito.TranslationService;
 import org.junit.jupiter.api.DisplayName;

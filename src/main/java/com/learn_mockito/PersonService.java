@@ -1,4 +1,4 @@
-package com.learn_mockito.chapter2;
+package com.learn_mockito;
 
 import java.time.LocalDate;
 import java.util.Arrays;

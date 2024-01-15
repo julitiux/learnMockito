@@ -1,6 +1,9 @@
 package com.learn_mockito.chapter2;
 
 
+import com.learn_mockito.Person;
+import com.learn_mockito.PersonRepository;
+import com.learn_mockito.PersonService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
