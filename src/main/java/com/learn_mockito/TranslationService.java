@@ -1,4 +1,4 @@
-package com.learn_mockito.chapter1;
+package com.learn_mockito;
 
 public interface TranslationService {
   default String translate(String text,
