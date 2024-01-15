@@ -1,4 +1,4 @@
-package com.learn_mockito.chapter1.astro;
+package com.learn_mockito.astro;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
