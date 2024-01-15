@@ -1,6 +1,6 @@
-package com.learn_mockito;
+package com.learn_mockito.hr;
 
-import com.learn_mockito.HelloWorld;
+import com.learn_mockito.hr.HelloWorld;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

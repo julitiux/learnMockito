@@ -1,6 +1,10 @@
-package com.learn_mockito;
+package com.learn_mockito.hr;
 
 
+import com.learn_mockito.hr.HelloMockito;
+import com.learn_mockito.hr.Person;
+import com.learn_mockito.hr.PersonRepository;
+import com.learn_mockito.hr.TranslationService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

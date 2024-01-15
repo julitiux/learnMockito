@@ -1,4 +1,4 @@
-package com.learn_mockito;
+package com.learn_mockito.hr;
 
 import java.util.List;
 import java.util.Optional;

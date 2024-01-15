@@ -1,4 +1,4 @@
-package com.learn_mockito;
+package com.learn_mockito.hr;
 
 public class HelloWorld {
 
