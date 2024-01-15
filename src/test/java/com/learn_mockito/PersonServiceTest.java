@@ -1,4 +1,4 @@
-package com.learn_mockito.chapter2;
+package com.learn_mockito;
 
 
 import com.learn_mockito.Person;
