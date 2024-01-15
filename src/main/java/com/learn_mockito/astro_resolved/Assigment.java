@@ -1,4 +1,4 @@
-package com.learn_mockito.astro;
+package com.learn_mockito.astro_resolved;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,4 +1,4 @@
-package com.learn_mockito.astro;
+package com.learn_mockito.astro_resolved;
 
 public interface Gateway<T> {
   T getResponse();
